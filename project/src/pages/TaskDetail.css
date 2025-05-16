@@ -1,0 +1,243 @@
+.task-detail-page {
+  animation: fadeIn 0.5s ease;
+}
+
+.back-link {
+  margin-bottom: var(--space-3);
+}
+
+.back-link a {
+  display: inline-flex;
+  align-items: center;
+  color: var(--gray-600);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.back-link a:hover {
+  color: var(--primary);
+}
+
+.task-detail-actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.task-detail-card {
+  background-color: var(--light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-4);
+  border-left: 4px solid transparent;
+}
+
+.task-detail-header {
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.task-detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.task-priority, .task-category, .task-status {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  text-transform: capitalize;
+}
+
+.task-priority.priority-high {
+  background-color: rgba(255, 69, 58, 0.1);
+  color: var(--error);
+}
+
+.task-priority.priority-medium {
+  background-color: rgba(255, 214, 10, 0.1);
+  color: var(--warning);
+}
+
+.task-priority.priority-low {
+  background-color: rgba(48, 209, 88, 0.1);
+  color: var(--success);
+}
+
+.task-category.category-work {
+  background-color: rgba(94, 92, 230, 0.1);
+  color: var(--secondary);
+}
+
+.task-category.category-personal {
+  background-color: rgba(255, 159, 10, 0.1);
+  color: var(--accent);
+}
+
+.task-category.category-health {
+  background-color: rgba(48, 209, 88, 0.1);
+  color: var(--success);
+}
+
+.task-category.category-education {
+  background-color: rgba(10, 132, 255, 0.1);
+  color: var(--primary);
+}
+
+.task-category.category-default {
+  background-color: rgba(174, 174, 178, 0.1);
+  color: var(--gray-600);
+}
+
+.task-status {
+  background-color: var(--gray-200);
+  color: var(--gray-700);
+}
+
+.completed .task-status {
+  background-color: rgba(48, 209, 88, 0.1);
+  color: var(--success);
+}
+
+.task-detail-title {
+  font-size: 1.8rem;
+  margin-bottom: var(--space-3);
+}
+
+.completed .task-detail-title {
+  color: var(--gray-500);
+  text-decoration: line-through;
+}
+
+.task-detail-time {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+  color: var(--gray-700);
+}
+
+.task-date-large, .task-time-range {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: 1rem;
+}
+
+.task-date-icon, .task-time-icon {
+  font-size: 1.2rem;
+}
+
+.task-detail-description {
+  margin-bottom: var(--space-4);
+}
+
+.task-detail-description h3 {
+  color: var(--gray-700);
+  font-size: 1.2rem;
+  margin-bottom: var(--space-2);
+}
+
+.task-detail-description p {
+  white-space: pre-line;
+  color: var(--gray-800);
+  line-height: 1.6;
+}
+
+.completed .task-detail-description p {
+  color: var(--gray-500);
+}
+
+.task-detail-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--gray-200);
+  margin-top: var(--space-3);
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.task-created-at {
+  color: var(--gray-600);
+  font-size: 0.9rem;
+}
+
+.btn-error {
+  background-color: var(--error);
+  color: var(--light);
+}
+
+.btn-error:hover {
+  background-color: #e03730;
+}
+
+.btn-outline.btn-error {
+  background-color: transparent;
+  border: 1px solid var(--error);
+  color: var(--error);
+}
+
+.btn-outline.btn-error:hover {
+  background-color: rgba(255, 69, 58, 0.1);
+  color: var(--error);
+}
+
+.delete-confirmation {
+  background-color: var(--gray-100);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--error);
+}
+
+.delete-confirmation p {
+  margin-bottom: var(--space-2);
+  color: var(--gray-800);
+}
+
+.delete-actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+  
+  .task-detail-actions {
+    width: 100%;
+  }
+  
+  .task-detail-actions .btn {
+    flex: 1;
+  }
+  
+  .task-detail-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .delete-confirmation {
+    width: 100%;
+  }
+  
+  .delete-actions {
+    flex-direction: column;
+  }
+  
+  .delete-actions .btn {
+    width: 100%;
+  }
+}

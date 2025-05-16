@@ -1,0 +1,345 @@
+:root {
+  /* Color System */
+  --primary: #0A84FF;
+  --primary-light: #5AC8FA;
+  --primary-dark: #0067CC;
+  
+  --secondary: #5E5CE6;
+  --secondary-light: #BF5AF2;
+  --secondary-dark: #4F4BD9;
+  
+  --accent: #FF9F0A;
+  --accent-light: #FFD60A;
+  --accent-dark: #FF6B00;
+  
+  --success: #30D158;
+  --warning: #FFD60A;
+  --error: #FF453A;
+  
+  --gray-100: #F2F2F7;
+  --gray-200: #E5E5EA;
+  --gray-300: #D1D1D6;
+  --gray-400: #C7C7CC;
+  --gray-500: #AEAEB2;
+  --gray-600: #8E8E93;
+  --gray-700: #636366;
+  --gray-800: #48484A;
+  --gray-900: #3A3A3C;
+  
+  --dark: #1C1C1E;
+  --light: #FFFFFF;
+  
+  /* Fonts */
+  --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  
+  /* Spacing - 8px system */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 2.5rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-medium: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Border radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  
+  /* Z-index */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--dark);
+  background-color: var(--gray-100);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+button, .btn {
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-md);
+  border: none;
+  transition: all var(--transition-fast);
+  background-color: var(--primary);
+  color: var(--light);
+}
+
+button:hover, .btn:hover {
+  background-color: var(--primary-dark);
+}
+
+button:disabled, .btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+input, select, textarea {
+  font-family: var(--font-family);
+  font-size: 1rem;
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--gray-400);
+  width: 100%;
+  background-color: var(--light);
+  transition: border-color var(--transition-fast);
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.1);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  margin-bottom: var(--space-3);
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin-bottom: var(--space-3);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+}
+
+.card {
+  background-color: var(--light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+.loading::after {
+  content: "...";
+  animation: dots 1.5s steps(5, end) infinite;
+}
+
+@keyframes dots {
+  0%, 20% { content: "."; }
+  40% { content: ".."; }
+  60%, 100% { content: "..."; }
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: var(--space-3);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--space-1);
+  font-weight: 500;
+}
+
+.form-control {
+  margin-bottom: var(--space-3);
+}
+
+/* Alert */
+.alert {
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-3);
+}
+
+.alert-success {
+  background-color: rgba(48, 209, 88, 0.1);
+  color: var(--success);
+  border: 1px solid var(--success);
+}
+
+.alert-error {
+  background-color: rgba(255, 69, 58, 0.1);
+  color: var(--error);
+  border: 1px solid var(--error);
+}
+
+/* Responsive breakpoints */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 1.75rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    max-width: 900px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+/* Button Variants */
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--light);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: var(--light);
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-dark);
+}
+
+.btn-accent {
+  background-color: var(--accent);
+  color: var(--light);
+}
+
+.btn-accent:hover {
+  background-color: var(--accent-dark);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary);
+  color: var(--light);
+}
+
+/* Grid and Flexbox */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.grid {
+  display: grid;
+}
+
+.gap-1 {
+  gap: var(--space-1);
+}
+
+.gap-2 {
+  gap: var(--space-2);
+}
+
+.gap-3 {
+  gap: var(--space-3);
+}
+
+.gap-4 {
+  gap: var(--space-4);
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}

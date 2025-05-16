@@ -1,0 +1,163 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: var(--space-4) 0;
+}
+
+/* Button styles */
+.btn-group {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.btn-group button {
+  flex: 1;
+}
+
+.btn-sm {
+  padding: 0.3rem 0.8rem;
+  font-size: 0.875rem;
+}
+
+.btn-lg {
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+/* Priority colors for tasks */
+.priority-high {
+  border-left: 4px solid var(--error);
+}
+
+.priority-medium {
+  border-left: 4px solid var(--warning);
+}
+
+.priority-low {
+  border-left: 4px solid var(--success);
+}
+
+/* Category colors */
+.category-work {
+  background-color: rgba(94, 92, 230, 0.1);
+  border-color: var(--secondary);
+}
+
+.category-personal {
+  background-color: rgba(255, 159, 10, 0.1);
+  border-color: var(--accent);
+}
+
+.category-health {
+  background-color: rgba(48, 209, 88, 0.1);
+  border-color: var(--success);
+}
+
+.category-education {
+  background-color: rgba(10, 132, 255, 0.1);
+  border-color: var(--primary);
+}
+
+.category-default {
+  background-color: rgba(174, 174, 178, 0.1);
+  border-color: var(--gray-500);
+}
+
+/* Task status */
+.completed {
+  opacity: 0.7;
+  text-decoration: line-through;
+}
+
+/* Animation for task creation and deletion */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-20px); }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+/* Page transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Page layouts */
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
+
+.page-title {
+  margin-bottom: 0;
+}
+
+/* Grid layouts */
+.grid-tasks {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-3);
+}
+
+@media (max-width: 768px) {
+  .grid-tasks {
+    grid-template-columns: 1fr;
+  }
+  
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+  
+  .btn-group {
+    width: 100%;
+  }
+}
